@@ -42,12 +42,12 @@
             <label for="exampleFormControlTextarea1"><h2>Your analyzed Text - {{ purpose }}</h2></label>
             {% if charcount %}
             <p>
-                {{ analyzed_text }} <br>
-                Character Count - {{ charcount }}    
+            <pre>{{ analyzed_text }} <br>
+            Character Count - {{ charcount }}</pre>    
             </p>
             {% else %}
             <p>
-                {{ analyzed_text }} 
+            <pre>{{ analyzed_text }}</pre>
             </p>
             {% endif %}
         </div>

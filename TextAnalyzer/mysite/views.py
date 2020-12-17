@@ -8,7 +8,6 @@ def index(request):
 def analyze(request):
     # Get the Text
     djtext = request.GET.get('textarea','default')
-    print(djtext)
     # Check checkbox values
     djremovepunc = request.GET.get('removepunc','Off')
     djcapitalized = request.GET.get('capitalized','off')
@@ -18,9 +17,9 @@ def analyze(request):
     
     # Check removepunc checkbox
     if djremovepunc == 'on':
-        analyzed = removepunctuation(analyzed)        
+        analyzed = removepunctuation(analyzed)   
         params = {'analyzed_text' : analyzed,'purpose' : 'Removed Punctuations'}
-    
+
     if djcapitalized == 'on':
         analyzed = capitalized(analyzed)
         params = {'analyzed_text' : analyzed,'purpose' : 'UPPERCASE'}
