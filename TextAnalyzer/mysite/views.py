@@ -7,12 +7,12 @@ def index(request):
 
 def analyze(request):
     # Get the Text
-    djtext = request.GET.get('textarea','default')
+    djtext = request.POST.get('textarea','default')
     # Check checkbox values
-    djremovepunc = request.GET.get('removepunc','Off')
-    djcapitalized = request.GET.get('capitalized','off')
-    djnewlineremover = request.GET.get('newlineremover','off')
-    djcharcount = request.GET.get('charcounter','off')
+    djremovepunc = request.POST.get('removepunc','Off')
+    djcapitalized = request.POST.get('capitalized','off')
+    djnewlineremover = request.POST.get('newlineremover','off')
+    djcharcount = request.POST.get('charcounter','off')
     analyzed = djtext
     
     # Check removepunc checkbox
@@ -53,7 +53,7 @@ def capitalized(djtext):
 def newlineremover(djtext):
     analyzed = ""
     for char in djtext:
-        if char != '\n':
+        if char != '\n' and char != '\r':
             analyzed = analyzed + char      
     return analyzed
 
